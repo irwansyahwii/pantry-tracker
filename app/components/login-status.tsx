@@ -2,6 +2,7 @@
 import { observer } from "mobx-react-lite";
 import { AuthStore } from "../store/auth-store";
 import { useStores } from "../store";
+import { Button } from "@mui/material";
 
 export const LoginStatus = observer(({authStore}: {authStore: AuthStore})=>{
   return (<div>
@@ -17,7 +18,7 @@ export const LoginStatusClientSide = ()=>{
   return (
     <>
       <LoginStatus authStore={authStore}/>
-      <button onClick={login}>Login</button>
+      <Button variant="outlined" onClick={login}>Login</Button>
     </>
   )
 }
