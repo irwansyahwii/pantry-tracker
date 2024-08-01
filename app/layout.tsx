@@ -4,6 +4,7 @@ import "./globals.css";
 import { StoreProvider } from "./store";
 import Head from 'next/head';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import { LoginStatusClientSide } from "./components/login-status";
 
 
 if (!new class { x: any }().hasOwnProperty('x')) throw new Error('Transpiler is not configured correctly');
@@ -27,6 +28,7 @@ export default function RootLayout({
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <body className={inter.className}>
+        <LoginStatusClientSide/>
         <StoreProvider>
            <AppRouterCacheProvider>
             {children}
