@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { StoreProvider } from "./store";
+import Head from 'next/head';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+
 
 if (!new class { x: any }().hasOwnProperty('x')) throw new Error('Transpiler is not configured correctly');
 
@@ -20,9 +23,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+      </Head>
       <body className={inter.className}>
         <StoreProvider>
-          {children}
+           <AppRouterCacheProvider>
+            {children}
+          </AppRouterCacheProvider>
         </StoreProvider>        
       </body>
     </html>
